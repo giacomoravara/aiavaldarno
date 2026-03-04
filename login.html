@@ -136,8 +136,7 @@
 <!-- Navbar minimal -->
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
-    <div class="logo-icon">AIA</div>
-    <span>AIA <span class="oro">Valdarno</span></span>
+    <img src="images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
   </a>
   <ul class="navbar-nav" id="navbar-nav" style="display:flex;">
     <li><a href="index.html">Home</a></li>
@@ -216,7 +215,7 @@
 </div>
 
 <script type="module">
-  import { login, getSession } from '/js/auth.js';
+  import { login, getSession } from './js/auth.js';
 
   // Redirect se già loggato
   (async () => {

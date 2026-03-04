@@ -14,8 +14,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
-    <div class="logo-icon">AIA</div>
-    <span>AIA <span class="oro">Valdarno</span></span>
+    <img src="images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
   </a>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -41,7 +40,7 @@
 <!-- Page Header -->
 <div class="page-header">
   <div class="container">
-    <h1>📅 Calendario <span style="color:var(--oro)">Eventi</span></h1>
+    <h1>Calendario <span style="color:var(--oro)">Eventi</span></h1>
     <p>Raduni, RTO, corsi e partite della Sezione Valdarno</p>
   </div>
 </div>
@@ -67,8 +66,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="navbar-brand" style="position:static;">
-          <div class="logo-icon">AIA</div>
-          <span>AIA <span class="oro">Valdarno</span></span>
+          <img src="images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
         </div>
         <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
           Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
@@ -104,9 +102,9 @@
 </footer>
 
 <script type="module">
-  import { initNavbar } from '/js/auth.js';
-  import { initCalendario } from '/js/calendario.js';
-  import { getSession, getUserProfile } from '/js/supabase-client.js';
+  import { initNavbar } from './js/auth.js';
+  import { initCalendario } from './js/calendario.js';
+  import { getSession, getUserProfile } from './js/supabase-client.js';
 
   async function init() {
     const { role } = await initNavbar();

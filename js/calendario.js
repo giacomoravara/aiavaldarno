@@ -193,7 +193,7 @@ function showDayPopup(dateStr, events, containerId) {
   const label = `${parseInt(day)} ${MESI[parseInt(month) - 1]} ${year}`;
 
   const eventsHtml = events.length === 0
-    ? '<p style="color:var(--grigio);font-size:0.9rem;">Nessun evento in questo giorno.</p>'
+    ? '<p style="color:var(--grigio);font-size:0.9rem;padding:8px 0;">Nessun evento in questo giorno.</p>'
     : events.map(e => {
         const c = TIPO_COLORS[e.type] || TIPO_COLORS.Altro;
         const adminActions = isAdminMode ? `
@@ -202,13 +202,13 @@ function showDayPopup(dateStr, events, containerId) {
             <button class="btn btn-sm btn-danger" onclick="deleteEvent('${e.id}')">Elimina</button>
           </div>` : '';
         return `
-          <div style="border-left:3px solid ${c.border};padding:12px 14px;background:#0f0f0f;border-radius:0 8px 8px 0;margin-bottom:10px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <div style="border-left:3px solid ${c.border};padding:12px 14px;background:var(--grigio-pale);border-radius:0 8px 8px 0;margin-bottom:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
               <span class="badge ${c.badge}">${e.type}</span>
               ${e.time ? `<span style="color:var(--grigio);font-size:0.82rem;">⏰ ${e.time}</span>` : ''}
             </div>
-            <h4 style="margin-bottom:4px;">${e.title}</h4>
-            ${e.notes ? `<p style="color:var(--grigio);font-size:0.85rem;">${e.notes}</p>` : ''}
+            <h4 style="margin-bottom:4px;color:var(--testo);font-size:1rem;">${e.title}</h4>
+            ${e.notes ? `<p style="color:var(--grigio);font-size:0.85rem;margin-top:4px;">${e.notes}</p>` : ''}
             ${adminActions}
           </div>
         `;

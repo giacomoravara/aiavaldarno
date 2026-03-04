@@ -122,8 +122,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <a href="../index.html" class="navbar-brand">
-    <div class="logo-icon">AIA</div>
-    <span>AIA <span class="oro">Valdarno</span></span>
+    <img src="../images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
   </a>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -262,9 +261,9 @@
 </footer>
 
 <script type="module">
-  import { requireRole, initNavbar } from '/js/auth.js';
-  import { supabase, getUserProfile } from '/js/supabase-client.js';
-  import { getNotificheNonLette, segnaComeLetta, richiediPermesso } from '/js/notifiche.js';
+  import { requireRole, initNavbar } from '../js/auth.js';
+  import { supabase, getUserProfile } from '../js/supabase-client.js';
+  import { getNotificheNonLette, segnaComeLetta, richiediPermesso } from '../js/notifiche.js';
 
   const MESI = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
   const TIPO_BADGE = { Raduno:'badge-blue', RTO:'badge-green', Corso:'badge-orange', Partita:'badge-red', Altro:'badge-gray' };
