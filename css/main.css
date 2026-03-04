@@ -181,7 +181,20 @@ h1, h2, h3, h4, h5 {
 }
 .navbar-toggle span {
   display: block; width: 26px; height: 2px;
-  background: var(--bianco); border-radius: 2px; transition: all var(--transition);
+  background: var(--bianco); border-radius: 2px; transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: center;
+}
+
+/* Hamburger → X quando aperto */
+.navbar-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ---- Hero Section ---- */
@@ -475,12 +488,15 @@ tbody tr:hover td { background: var(--blu-pale); }
   .navbar-nav {
     position: fixed; top: 68px; left: 0; right: 0;
     background: var(--blu-dark); border-bottom: 2px solid var(--oro);
-    flex-direction: column; padding: 16px 20px; gap: 4px;
-    transform: translateY(-110%); opacity: 0; pointer-events: none;
-    transition: all var(--transition);
+    flex-direction: column; padding: 8px 0; gap: 0;
+    transform: translateY(-8px); opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   }
   .navbar-nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-  .navbar-nav a { padding: 10px 14px; width: 100%; display: block; }
+  .navbar-nav li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .navbar-nav li:last-child { border-bottom: none; }
+  .navbar-nav a { padding: 14px 24px; width: 100%; display: block; font-size: 0.95rem; }
   .navbar-toggle { display: flex; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }

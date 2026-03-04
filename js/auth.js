@@ -5,11 +5,12 @@
 
 import { supabase, getUserProfile } from './supabase-client.js';
 
+const BASE = import.meta.url.split('/js/')[0];
 const ROLE_REDIRECTS = {
-  superadmin: '/admin/dashboard.html',
-  admin: '/admin/eventi.html',
-  arbitro: '/arbitro/area-personale.html',
-  pubblico: '/index.html',
+  superadmin: BASE + '/admin/dashboard.html',
+  admin:      BASE + '/admin/eventi.html',
+  arbitro:    BASE + '/arbitro/area-personale.html',
+  pubblico:   BASE + '/index.html',
 };
 
 /**
@@ -34,7 +35,7 @@ export async function login(email, password) {
  */
 export async function logout() {
   await supabase.auth.signOut();
-  window.location.href = '/index.html';
+  window.location.href = BASE + '/index.html';
 }
 
 /**
@@ -55,12 +56,12 @@ export async function getSession() {
 export async function requireRole(rolesArray) {
   const session = await getSession();
   if (!session) {
-    window.location.href = '/login.html';
+    window.location.href = BASE + '/login.html';
     return null;
   }
   const profile = await getUserProfile(session.user.id);
   if (!profile || !rolesArray.includes(profile.role)) {
-    window.location.href = '/index.html';
+    window.location.href = BASE + '/index.html';
     return null;
   }
   return profile;
@@ -107,8 +108,34 @@ export async function initNavbar() {
   const toggle = document.getElementById('navbar-toggle');
   const nav = document.getElementById('navbar-nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+    const closeMenu = () => {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Chiude cliccando fuori dal menu
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Chiude al click su un link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Chiude premendo Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
     });
   }
 
