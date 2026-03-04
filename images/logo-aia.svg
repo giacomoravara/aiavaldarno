@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220">
+  <!-- Blue background -->
+  <rect width="200" height="220" fill="#1A52A4" rx="0"/>
+
+  <!-- AIA arch/bridge mark (white) -->
+  <!-- Arch over center post -->
+  <path d="M46 76 Q100 28 154 76" stroke="white" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left pillar -->
+  <rect x="41" y="74" width="9" height="48" fill="white" rx="2"/>
+  <!-- Right pillar -->
+  <rect x="150" y="74" width="9" height="48" fill="white" rx="2"/>
+  <!-- Center post (I) -->
+  <rect x="95.5" y="49" width="9" height="73" fill="white" rx="2"/>
+  <!-- Left crossbar of left A -->
+  <line x1="41" y1="104" x2="75" y2="104" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <!-- Right crossbar of right A -->
+  <line x1="125" y1="104" x2="159" y2="104" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <!-- Left A left leg -->
+  <line x1="45" y1="122" x2="35" y2="145" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <!-- Left A right leg (to center) -->
+  <line x1="45" y1="122" x2="95" y2="145" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <!-- Right A left leg (from center) -->
+  <line x1="155" y1="122" x2="105" y2="145" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <!-- Right A right leg -->
+  <line x1="155" y1="122" x2="165" y2="145" stroke="white" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Gold separator line -->
+  <line x1="20" y1="157" x2="180" y2="157" stroke="#C8A050" stroke-width="1.5"/>
+
+  <!-- FIGC small text -->
+  <text x="100" y="172" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" letter-spacing="3">FIGC</text>
+
+  <!-- Sezione di -->
+  <text x="100" y="190" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="300" letter-spacing="1">Sezione di</text>
+
+  <!-- VALDARNO -->
+  <text x="100" y="208" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="3">VALDARNO</text>
+</svg>
