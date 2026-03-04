@@ -14,7 +14,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
-    <img src="images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
+    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
   </a>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -66,7 +66,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="navbar-brand" style="position:static;">
-          <img src="images/logo-aia.png" alt="AIA Sezione Valdarno" class="logo-img">
+          <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
         </div>
         <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
           Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
@@ -104,29 +104,36 @@
 <script type="module">
   import { initNavbar } from './js/auth.js';
   import { initCalendario } from './js/calendario.js';
-  import { getSession, getUserProfile } from './js/supabase-client.js';
 
   async function init() {
-    const { role } = await initNavbar();
+    let role = 'pubblico';
+    try {
+      const nav = await initNavbar();
+      role = nav?.role ?? 'pubblico';
+    } catch (e) {
+      console.warn('initNavbar error:', e);
+    }
 
-    // Mostra banner info in base al ruolo
     const banner = document.getElementById('info-banner');
     const bannerText = document.getElementById('info-banner-text');
 
     if (role === 'pubblico') {
       banner.style.display = 'block';
-      bannerText.textContent = '👤 Stai visualizzando gli eventi pubblici. Accedi per vedere tutti gli eventi riservati agli arbitri.';
+      bannerText.textContent = 'Stai visualizzando gli eventi pubblici. Accedi per vedere tutti gli eventi riservati agli arbitri.';
     } else if (role === 'arbitro') {
       banner.style.display = 'block';
-      bannerText.textContent = `🏆 Benvenuto! Visualizzi gli eventi riservati agli arbitri.`;
+      bannerText.textContent = 'Benvenuto! Visualizzi gli eventi riservati agli arbitri.';
     }
 
-    // Admin/superadmin: modalità admin con possibilità di gestire eventi
     const isAdmin = role === 'admin' || role === 'superadmin';
     await initCalendario('calendario-container', isAdmin);
   }
 
-  init();
+  init().catch(err => {
+    console.error('Errore init calendario:', err);
+    const c = document.getElementById('calendario-container');
+    if (c) c.innerHTML = '<p style="color:var(--grigio);text-align:center;padding:40px;">Impossibile caricare il calendario. Riprova più tardi.</p>';
+  });
 </script>
 
 </body>

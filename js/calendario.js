@@ -32,35 +32,33 @@ let isAdminMode = false;
 export async function initCalendario(containerId, adminMode = false) {
   isAdminMode = adminMode;
 
-  // Rileva ruolo utente
-  const { data: { session } } = await supabase.auth.getSession();
-  if (session) {
-    const profile = await getUserProfile(session.user.id);
-    userRole = profile?.role ?? 'pubblico';
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      const profile = await getUserProfile(session.user.id);
+      userRole = profile?.role ?? 'pubblico';
+    }
+    await loadEvents();
+  } catch (err) {
+    console.warn('Supabase non raggiungibile, calendario vuoto:', err?.message ?? err);
+    allEvents = [];
   }
 
-  await loadEvents();
   renderCalendar(containerId);
 }
 
 async function loadEvents() {
   let query = supabase.from('events').select('*').order('date', { ascending: true });
 
-  // Filtra per visibilità in base al ruolo
   if (userRole === 'pubblico') {
     query = query.eq('visibile_a', 'tutti');
   } else if (userRole === 'arbitro') {
     query = query.in('visibile_a', ['tutti', 'arbitri']);
   }
-  // admin e superadmin vedono tutto (nessun filtro aggiuntivo)
 
   const { data, error } = await query;
-  if (error) {
-    console.error('Errore caricamento eventi:', error.message);
-    allEvents = [];
-  } else {
-    allEvents = data || [];
-  }
+  if (error) throw new Error(error.message);
+  allEvents = data || [];
 }
 
 function renderCalendar(containerId) {
