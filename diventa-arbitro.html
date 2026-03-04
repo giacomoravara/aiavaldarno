@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diventa Arbitro — AIA Sezione Valdarno</title>
+  <meta name="description" content="Vuoi diventare arbitro di calcio? Scopri come iscriverti ai corsi della Sezione Valdarno dell'AIA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li class="has-dropdown">
+      <a href="chi-siamo.html">La Sezione <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo.html#storia">Storia</a></li>
+        <li><a href="chi-siamo.html#dirigenza">Dirigenza</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="area-tecnica.html">Area Tecnica <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="area-tecnica.html">Regolamenti</a></li>
+        <li><a href="area-tecnica.html#rto">Test atletici (RTO)</a></li>
+        <li><a href="area-tecnica.html#rimborsi">Rimborsi</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="diventa-arbitro.html" class="active">Diventa Arbitro <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="diventa-arbitro.html#perche">Perché arbitro</a></li>
+        <li><a href="diventa-arbitro.html#come">Come si diventa</a></li>
+        <li><a href="diventa-arbitro.html#iscriviti">Iscriviti ora</a></li>
+      </ul>
+    </li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="login.html" class="btn btn-primary btn-sm" style="color:var(--blu-dark);">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div style="position:relative;height:60vh;min-height:380px;margin-top:68px;overflow:hidden;background-image:url('https://picsum.photos/seed/valdarno-referee/1920/900');background-size:cover;background-position:center;">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,45,96,0.55) 0%,rgba(13,45,96,0.75) 100%);"></div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:#fff;">
+    <p style="font-family:var(--font-cond);font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--oro);margin-bottom:16px;">Associazione Italiana Arbitri</p>
+    <h1 style="font-family:var(--font-cond);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;margin-bottom:16px;text-shadow:0 2px 16px rgba(0,0,0,0.4);">Diventa Arbitro</h1>
+    <p style="font-size:1.1rem;font-weight:300;max-width:520px;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:32px;">Fischia il calcio di inizio della tua nuova avventura. Unisciti alla grande famiglia degli arbitri italiani.</p>
+    <a href="#iscriviti" class="btn btn-white">Iscriviti ora</a>
+  </div>
+</div>
+
+<!-- ============ PERCHÉ ============ -->
+<section class="section" id="perche">
+  <div class="container">
+    <div class="section-header">
+      <h2>Perché diventare <span style="color:var(--oro)">Arbitro?</span></h2>
+      <p>Un percorso di crescita personale, sportiva e professionale</p>
+      <div class="line"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>Formazione Continua</h3>
+        <p>Ricevi una formazione strutturata sul Regolamento del Gioco e sulle tecniche arbitrali. Corsi, aggiornamenti e sessioni pratiche per crescere a ogni livello.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💪</div>
+        <h3>Preparazione Atletica</h3>
+        <p>Test atletici (RTO) regolari per mantenere la forma fisica. Un percorso che ti aiuta a tenerti in allenamento tutto l'anno.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>Grande Comunità</h3>
+        <p>Entra a far parte di una famiglia di oltre 36.000 arbitri in tutta Italia, uniti dalla passione per il calcio e per la lealtà sportiva.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💰</div>
+        <h3>Rimborso Trasferte</h3>
+        <p>L'arbitro riceve rimborsi per ogni gara diretta, a copertura delle spese di trasferta. Un modo per vivere la tua passione sostenendo anche le spese.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Spirito di Fair Play</h3>
+        <p>Sii il custode delle regole. Il tuo ruolo è fondamentale per garantire il rispetto, la correttezza e il corretto svolgimento di ogni gara.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Carriera Arbitrale</h3>
+        <p>Inizia dai campionati giovanili e sali di categoria: dalla Terza Categoria alla CAN, la carriera arbitrale premia il merito e l'impegno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COME SI DIVENTA ============ -->
+<section class="section" id="come" style="background:var(--grigio-pale);">
+  <div class="container">
+    <div class="section-header">
+      <h2>Come si <span style="color:var(--oro)">diventa arbitro?</span></h2>
+      <p>Il percorso per iniziare la tua carriera arbitrale</p>
+      <div class="line"></div>
+    </div>
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
+
+      <div style="display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #dce4f0;">
+        <div style="min-width:48px;height:48px;border-radius:50%;background:var(--blu);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-cond);font-weight:700;font-size:1.2rem;flex-shrink:0;">1</div>
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:8px;">Invia la domanda</h3>
+          <p style="color:var(--grigio);font-weight:300;line-height:1.7;">Compila il modulo di iscrizione o scrivici direttamente all'email di sezione. Puoi iscriverti se hai almeno 14 anni e non superi i 45 anni (primo tesseramento).</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #dce4f0;">
+        <div style="min-width:48px;height:48px;border-radius:50%;background:var(--blu);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-cond);font-weight:700;font-size:1.2rem;flex-shrink:0;">2</div>
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:8px;">Frequenta il corso</h3>
+          <p style="color:var(--grigio);font-weight:300;line-height:1.7;">Partecipa al corso di formazione per aspiranti arbitri (circa 8-10 lezioni serali). Imparerai le Regole del Gioco, la tecnica arbitrale e le disposizioni organizzative.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #dce4f0;">
+        <div style="min-width:48px;height:48px;border-radius:50%;background:var(--blu);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-cond);font-weight:700;font-size:1.2rem;flex-shrink:0;">3</div>
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:8px;">Sostieni l'esame</h3>
+          <p style="color:var(--grigio);font-weight:300;line-height:1.7;">Al termine del corso affronterai un esame scritto sulle Regole del Gioco e un test atletico. Il superamento dell'esame ti consentirà il tesseramento AIA.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:24px;align-items:flex-start;padding:28px 0;">
+        <div style="min-width:48px;height:48px;border-radius:50%;background:var(--oro);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-cond);font-weight:700;font-size:1.2rem;flex-shrink:0;">✓</div>
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:8px;">Inizia ad arbitrare!</h3>
+          <p style="color:var(--grigio);font-weight:300;line-height:1.7;">Sarai assegnato alle gare dei campionati giovanili e dilettantistici del territorio. La tua carriera arbitrale è iniziata — e può portarti lontano!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ISCRIVITI ============ -->
+<section class="section" id="iscriviti">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <p style="font-size:0.82rem;color:var(--blu);font-family:var(--font-cond);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Inizia oggi</p>
+      <h2 style="font-size:2rem;margin-bottom:16px;">Pronto a <span style="color:var(--oro)">fischiare?</span></h2>
+      <div style="width:50px;height:3px;background:var(--oro);border-radius:2px;margin:0 auto 24px;"></div>
+      <p style="color:var(--grigio);line-height:1.8;font-weight:300;margin-bottom:40px;">Contattaci per ricevere tutte le informazioni sui prossimi corsi per aspiranti arbitri. Non aspettare: la stagione calcistica non aspetta!</p>
+
+      <div style="background:var(--blu-pale);border:1px solid #bdd0f0;border-radius:12px;padding:36px;text-align:left;">
+        <h3 style="font-size:1.3rem;margin-bottom:20px;color:var(--testo);">Contattaci per iscriverti</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="font-size:1.4rem;">📧</span>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--grigio);margin-bottom:2px;">Email</div>
+              <a href="mailto:aiavaldarno@gmail.com?subject=Iscrizione%20Corso%20Arbitri" style="color:var(--blu);font-weight:500;">aiavaldarno@gmail.com</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="font-size:1.4rem;">📞</span>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--grigio);margin-bottom:2px;">Telefono</div>
+              <a href="tel:+393939723207" style="color:var(--blu);font-weight:500;">393 972 3207</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="font-size:1.4rem;">📍</span>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--grigio);margin-bottom:2px;">Sede</div>
+              <span style="color:var(--testo);">Viale G. Leopardi 31/B, Montevarchi (AR)</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;text-align:center;">
+          <a href="mailto:aiavaldarno@gmail.com?subject=Voglio%20diventare%20arbitro%20-%20Richiesta%20informazioni" class="btn btn-primary" style="background:var(--blu);color:#fff;">Scrivici ora →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:56px;width:auto;">
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📷</span>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);">@aia_valdarno</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initNavbar } from './js/auth.js';
+  import { initDropdowns } from './js/navbar.js';
+  initNavbar().then(() => initDropdowns());
+</script>
+
+</body>
+</html>

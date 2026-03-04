@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Tecnica — AIA Sezione Valdarno</title>
+  <meta name="description" content="Regolamenti, test atletici RTO e rimborsi per gli arbitri della Sezione Valdarno AIA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li class="has-dropdown">
+      <a href="chi-siamo.html">La Sezione <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo.html#storia">Storia</a></li>
+        <li><a href="chi-siamo.html#dirigenza">Dirigenza</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="area-tecnica.html" class="active">Area Tecnica <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="area-tecnica.html">Regolamenti</a></li>
+        <li><a href="area-tecnica.html#rto">Test atletici (RTO)</a></li>
+        <li><a href="area-tecnica.html#rimborsi">Rimborsi</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="diventa-arbitro.html">Diventa Arbitro <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="diventa-arbitro.html#perche">Perché arbitro</a></li>
+        <li><a href="diventa-arbitro.html#come">Come si diventa</a></li>
+        <li><a href="diventa-arbitro.html#iscriviti">Iscriviti ora</a></li>
+      </ul>
+    </li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="login.html" class="btn btn-primary btn-sm" style="color:var(--blu-dark);">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<div class="page-header">
+  <div class="container">
+    <h1>Area Tecnica</h1>
+    <p>Regolamenti, formazione atletica e rimborsi per i nostri arbitri</p>
+  </div>
+</div>
+
+<!-- ============ REGOLAMENTI ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Regolamento del <span style="color:var(--oro)">Gioco</span></h2>
+      <p>Le regole fondamentali per ogni arbitro</p>
+      <div class="line"></div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Le 17 Regole</h3>
+        <p>Il calcio è governato da 17 regole ufficiali IFAB. Ogni arbitro deve conoscerle a fondo per garantire gare corrette e regolari.</p>
+        <a href="https://www.ifab.com/laws-of-the-game/" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;font-family:var(--font-cond);font-weight:600;font-size:0.82rem;color:var(--blu);letter-spacing:0.5px;">Regole IFAB ↗</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Circolari AIA</h3>
+        <p>Le circolari tecniche e le disposizioni emanate dall'AIA nazionale per l'applicazione uniforme delle regole in tutto il territorio.</p>
+        <a href="https://www.aia-figc.it" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;font-family:var(--font-cond);font-weight:600;font-size:0.82rem;color:var(--blu);letter-spacing:0.5px;">AIA Nazionale ↗</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>Aggiornamenti Tecnici</h3>
+        <p>La nostra sezione organizza regolari sessioni di aggiornamento tecnico per mantenere tutti gli arbitri al corrente delle ultime interpretazioni regolamentari.</p>
+        <a href="calendario.html" style="display:inline-block;margin-top:14px;font-family:var(--font-cond);font-weight:600;font-size:0.82rem;color:var(--blu);letter-spacing:0.5px;">Vedi calendario →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RTO ============ -->
+<section class="section" id="rto" style="background:var(--grigio-pale);">
+  <div class="container">
+    <div class="section-header">
+      <h2>Test Atletici <span style="color:var(--oro)">RTO</span></h2>
+      <p>Requisiti di Tenuta Organica — la preparazione fisica dell'arbitro</p>
+      <div class="line"></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <p style="color:var(--grigio);line-height:1.8;font-weight:300;margin-bottom:20px;">I test di Requisiti di Tenuta Organica (RTO) sono prove atletiche obbligatorie che ogni arbitro deve sostenere all'inizio della stagione e a metà anno. Il superamento è condizione necessaria per la designazione alle gare.</p>
+        <p style="color:var(--grigio);line-height:1.8;font-weight:300;margin-bottom:24px;">La preparazione fisica è fondamentale: un arbitro deve coprire mediamente 9-11 km per partita, con continui cambi di ritmo.</p>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--bianco);border-radius:8px;border:1px solid #dce4f0;">
+            <span style="font-size:1.5rem;">🏃</span>
+            <div>
+              <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;">Test di Resistenza (Yo-Yo)</div>
+              <div style="color:var(--grigio);font-size:0.85rem;font-weight:300;">Valuta la capacità aerobica con navette progressive</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--bianco);border-radius:8px;border:1px solid #dce4f0;">
+            <span style="font-size:1.5rem;">⚡</span>
+            <div>
+              <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;">Test di Velocità (Sprint)</div>
+              <div style="color:var(--grigio);font-size:0.85rem;font-weight:300;">Misura la velocità su distanze brevi (6×40m)</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--bianco);border-radius:8px;border:1px solid #dce4f0;">
+            <span style="font-size:1.5rem;">🔄</span>
+            <div>
+              <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;">Recupero Intermittente</div>
+              <div style="color:var(--grigio);font-size:0.85rem;font-weight:300;">Simula i continui cambi di ritmo durante la gara</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);">
+        <img src="https://picsum.photos/seed/valdarno-athletics/600/450" alt="Test atletici RTO" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+
+    <div style="margin-top:40px;background:var(--bianco);border-radius:12px;padding:28px;border:1px solid #dce4f0;text-align:center;">
+      <p style="color:var(--grigio);font-weight:300;">Le date dei prossimi RTO sono disponibili nel calendario di sezione.</p>
+      <a href="calendario.html" class="btn btn-primary" style="background:var(--blu);color:#fff;margin-top:16px;">Vedi Calendario →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIMBORSI ============ -->
+<section class="section" id="rimborsi">
+  <div class="container">
+    <div class="section-header">
+      <h2>Rimborsi <span style="color:var(--oro)">e Gettoni</span></h2>
+      <p>Informazioni sui rimborsi spettanti agli arbitri per le gare designate</p>
+      <div class="line"></div>
+    </div>
+
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="background:var(--blu-pale);border-radius:12px;padding:28px;margin-bottom:28px;border-left:4px solid var(--blu);">
+        <p style="font-weight:300;line-height:1.7;color:var(--testo);">Gli arbitri della Sezione Valdarno ricevono rimborsi per ogni gara designata, secondo le tabelle approvate dall'AIA Nazionale e dalla Delegazione di competenza. I rimborsi variano in base alla categoria della gara e alla distanza percorsa.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">💶</div>
+          <h3>Gettone di Presenza</h3>
+          <p>Compenso fisso per ogni gara diretta, differenziato per categoria (Giovanissimi, Juniores, Terza Categoria, ecc.).</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚗</div>
+          <h3>Rimborso Km</h3>
+          <p>Rimborso chilometrico per gli spostamenti dalla propria residenza al campo di gara e ritorno, secondo le tabelle ACI.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h3>Compilazione Referto</h3>
+          <p>Il referto di gara deve essere compilato correttamente entro le 24 ore successive alla gara tramite il portale AIA.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;text-align:center;">
+        <p style="color:var(--grigio);font-weight:300;font-size:0.9rem;margin-bottom:16px;">Per dettagli specifici sulle tabelle dei rimborsi in vigore per la stagione corrente, contatta la segreteria di sezione.</p>
+        <a href="contatti.html" class="btn btn-secondary">Contatta la segreteria</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:56px;width:auto;">
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📷</span>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);">@aia_valdarno</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initNavbar } from './js/auth.js';
+  import { initDropdowns } from './js/navbar.js';
+  initNavbar().then(() => initDropdowns());
+</script>
+
+</body>
+</html>

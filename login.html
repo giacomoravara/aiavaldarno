@@ -15,26 +15,28 @@
       align-items: center;
       justify-content: center;
       padding: 80px 20px 40px;
-      background: radial-gradient(ellipse at center, #141008 0%, var(--nero) 70%);
+      background: linear-gradient(160deg, var(--blu-dark) 0%, var(--blu) 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .login-bg-lines {
+    .login-page::before {
+      content: '';
       position: absolute;
       inset: 0;
+      background-image: repeating-linear-gradient(-45deg,rgba(255,255,255,0.025) 0px,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 32px);
       pointer-events: none;
-      opacity: 0.04;
     }
 
     .login-card {
       width: 100%;
       max-width: 440px;
-      background: #0f0f0f;
-      border: 1px solid var(--nero-border);
+      background: var(--bianco);
+      border: 1px solid #dce4f0;
+      border-top: 4px solid var(--oro);
       border-radius: 16px;
       padding: 44px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.08);
+      box-shadow: 0 24px 80px rgba(13,45,96,0.35);
       position: relative;
       z-index: 1;
     }
@@ -44,24 +46,17 @@
       margin-bottom: 32px;
     }
 
-    .login-logo .logo-circle {
-      width: 72px; height: 72px;
-      background: linear-gradient(135deg, var(--oro-dark), var(--oro));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-title);
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--nero);
+    .login-logo img {
+      height: 72px;
+      width: auto;
       margin: 0 auto 16px;
-      box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+      display: block;
     }
 
     .login-logo h1 {
       font-size: 1.5rem;
       margin-bottom: 4px;
+      color: var(--testo);
     }
 
     .login-logo p {
@@ -69,24 +64,18 @@
       font-size: 0.85rem;
     }
 
-    .login-divider {
-      border: none;
-      border-top: 1px solid var(--nero-border);
-      margin: 28px 0;
-    }
-
     .login-footer {
       text-align: center;
       margin-top: 24px;
       padding-top: 20px;
-      border-top: 1px solid var(--nero-border);
+      border-top: 1px solid #dce4f0;
     }
     .login-footer p {
       color: var(--grigio);
       font-size: 0.82rem;
       line-height: 1.6;
     }
-    .login-footer a { color: var(--oro); }
+    .login-footer a { color: var(--blu); }
 
     .btn-login {
       width: 100%;
@@ -96,7 +85,10 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      background: var(--blu);
+      color: var(--bianco);
     }
+    .btn-login:hover { background: var(--blu-dark); color: var(--bianco); }
 
     .input-group {
       position: relative;
@@ -114,7 +106,6 @@
       pointer-events: none;
     }
 
-    /* Password toggle */
     .pwd-toggle {
       position: absolute;
       right: 14px;
@@ -128,7 +119,7 @@
       padding: 0;
       transition: color var(--transition);
     }
-    .pwd-toggle:hover { color: var(--oro); }
+    .pwd-toggle:hover { color: var(--blu); }
   </style>
 </head>
 <body>
@@ -137,10 +128,12 @@
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
     <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
   </a>
   <ul class="navbar-nav" id="navbar-nav" style="display:flex;">
     <li><a href="index.html">Home</a></li>
     <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
   </ul>
 </nav>
 
@@ -155,7 +148,7 @@
 
   <div class="login-card">
     <div class="login-logo">
-      <div class="logo-circle">AIA</div>
+      <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno">
       <h1>Area Riservata</h1>
       <p>Sezione Valdarno — Montevarchi (AR)</p>
     </div>
@@ -220,7 +213,7 @@
   // Redirect se già loggato
   (async () => {
     const session = await getSession();
-    if (session) window.location.href = '/index.html';
+    if (session) window.location.href = 'index.html';
   })();
 
   // Toggle password

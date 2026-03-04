@@ -13,8 +13,8 @@
       padding-top: 64px;
     }
     .area-header {
-      background: linear-gradient(135deg, #0f0f0f 0%, #1a1408 100%);
-      border-bottom: 1px solid var(--nero-border);
+      background: linear-gradient(135deg, var(--blu-dark) 0%, var(--blu) 100%);
+      border-bottom: 3px solid var(--oro);
       padding: 40px 0;
     }
     .area-header-inner {
@@ -25,19 +25,19 @@
     }
     .avatar {
       width: 72px; height: 72px;
-      background: linear-gradient(135deg, var(--oro-dark), var(--oro));
+      background: linear-gradient(135deg, var(--blu), var(--blu-light));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-title);
+      font-family: var(--font-cond);
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--nero);
+      color: var(--bianco);
       flex-shrink: 0;
     }
-    .area-header-info h1 { font-size: 1.8rem; margin-bottom: 4px; }
-    .area-header-info p { color: var(--grigio); font-size: 0.9rem; }
+    .area-header-info h1 { font-size: 1.8rem; margin-bottom: 4px; color: var(--bianco); }
+    .area-header-info p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
 
     .area-grid {
       display: grid;
@@ -46,17 +46,17 @@
       margin-top: 32px;
     }
     .area-box {
-      background: var(--nero-card);
-      border: 1px solid var(--nero-border);
+      background: var(--bianco);
+      border: 1px solid #dce4f0;
       border-radius: 12px;
       padding: 28px;
     }
     .area-box h3 {
       font-size: 1.1rem;
-      color: var(--oro);
+      color: var(--blu);
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--nero-border);
+      border-bottom: 1px solid #dce4f0;
     }
 
     .evento-mini {
@@ -64,7 +64,7 @@
       align-items: center;
       gap: 14px;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(30,30,30,0.8);
+      border-bottom: 1px solid #f0f4f8;
     }
     .evento-mini:last-child { border-bottom: none; }
     .evento-mini-date {
@@ -80,19 +80,19 @@
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(30,30,30,0.8);
+      border-bottom: 1px solid #f0f4f8;
       font-size: 0.9rem;
     }
     .profilo-info-row:last-child { border-bottom: none; }
     .profilo-info-row span:first-child { color: var(--grigio); }
-    .profilo-info-row span:last-child { color: var(--bianco); font-weight: 500; }
+    .profilo-info-row span:last-child { color: var(--testo); font-weight: 500; }
 
     .toggle-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(30,30,30,0.8);
+      border-bottom: 1px solid #f0f4f8;
     }
     .toggle-row:last-child { border-bottom: none; }
     .toggle-label { font-size: 0.9rem; color: var(--grigio-light); }
@@ -123,8 +123,9 @@
 <nav class="navbar">
   <a href="../index.html" class="navbar-brand">
     <img src="../images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Area Personale</small></div>
   </a>
-  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="navbar-nav" id="navbar-nav">
@@ -132,6 +133,7 @@
     <li><a href="../calendario.html">Calendario</a></li>
     <li><a href="../arbitro/area-personale.html" class="active">Area Personale</a></li>
     <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
       <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
     </li>
   </ul>

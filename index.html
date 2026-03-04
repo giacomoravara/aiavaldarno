@@ -16,13 +16,38 @@
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
     <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
   </a>
   <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="navbar-nav" id="navbar-nav">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li class="has-dropdown">
+      <a href="chi-siamo.html">La Sezione <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo.html#storia">Storia</a></li>
+        <li><a href="chi-siamo.html#dirigenza">Dirigenza</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="area-tecnica.html">Area Tecnica <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="area-tecnica.html">Regolamenti</a></li>
+        <li><a href="area-tecnica.html#rto">Test atletici (RTO)</a></li>
+        <li><a href="area-tecnica.html#rimborsi">Rimborsi</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="diventa-arbitro.html">Diventa Arbitro <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="diventa-arbitro.html#perche">Perché arbitro</a></li>
+        <li><a href="diventa-arbitro.html#come">Come si diventa</a></li>
+        <li><a href="diventa-arbitro.html#iscriviti">Iscriviti ora</a></li>
+      </ul>
+    </li>
     <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
     <li data-role="arbitro,admin,superadmin" style="display:none;">
       <a href="arbitro/area-personale.html">Area Personale</a>
     </li>
@@ -30,9 +55,10 @@
       <a href="admin/dashboard.html">Admin</a>
     </li>
     <li data-role="guest" style="display:none;">
-      <a href="login.html" class="btn btn-primary btn-sm">Accedi</a>
+      <a href="login.html" class="btn btn-primary btn-sm" style="color:var(--blu-dark);">Accedi</a>
     </li>
     <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
       <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
     </li>
   </ul>
@@ -42,8 +68,8 @@
 <div class="hero-carousel" id="hero-carousel">
   <div class="carousel-track" id="carousel-track">
 
-    <!-- Slide 1 — sostituire con background-image: url(images/slide1.jpg) -->
-    <div class="carousel-slide slide-1">
+    <!-- Slide 1 -->
+    <div class="carousel-slide" style="background-image: url('https://picsum.photos/seed/valdarno-sport1/1920/900');">
       <div class="carousel-slide-content">
         <img src="images/logo-aia.svg" alt="AIA Valdarno">
         <h2>AIA Sezione Valdarno</h2>
@@ -51,8 +77,8 @@
       </div>
     </div>
 
-    <!-- Slide 2 — sostituire con background-image: url(images/slide2.jpg) -->
-    <div class="carousel-slide slide-2">
+    <!-- Slide 2 -->
+    <div class="carousel-slide" style="background-image: url('https://picsum.photos/seed/valdarno-stadium2/1920/900');">
       <div class="carousel-slide-content">
         <img src="images/logo-aia.svg" alt="AIA Valdarno">
         <h2>I Nostri Arbitri in Campo</h2>
@@ -60,8 +86,8 @@
       </div>
     </div>
 
-    <!-- Slide 3 — sostituire con background-image: url(images/slide3.jpg) -->
-    <div class="carousel-slide slide-3">
+    <!-- Slide 3 -->
+    <div class="carousel-slide" style="background-image: url('https://picsum.photos/seed/valdarno-team3/1920/900');">
       <div class="carousel-slide-content">
         <img src="images/logo-aia.svg" alt="AIA Valdarno">
         <h2>Formazione e Crescita</h2>
@@ -249,7 +275,10 @@
         <h4>Link Utili</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
           <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
           <li><a href="login.html">Area Riservata</a></li>
           <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
         </ul>
@@ -332,7 +361,8 @@
 <!-- Auth navbar init -->
 <script type="module">
   import { initNavbar } from './js/auth.js';
-  initNavbar();
+  import { initDropdowns } from './js/navbar.js';
+  initNavbar().then(() => initDropdowns());
 </script>
 
 </body>

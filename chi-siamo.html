@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Siamo — AIA Sezione Valdarno</title>
+  <meta name="description" content="Scopri la storia e l'organizzazione della Sezione Valdarno dell'Associazione Italiana Arbitri.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li class="has-dropdown">
+      <a href="chi-siamo.html" class="active">La Sezione <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo.html#storia">Storia</a></li>
+        <li><a href="chi-siamo.html#dirigenza">Dirigenza</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="area-tecnica.html">Area Tecnica <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="area-tecnica.html">Regolamenti</a></li>
+        <li><a href="area-tecnica.html#rto">Test atletici (RTO)</a></li>
+        <li><a href="area-tecnica.html#rimborsi">Rimborsi</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="diventa-arbitro.html">Diventa Arbitro <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="diventa-arbitro.html#perche">Perché arbitro</a></li>
+        <li><a href="diventa-arbitro.html#come">Come si diventa</a></li>
+        <li><a href="diventa-arbitro.html#iscriviti">Iscriviti ora</a></li>
+      </ul>
+    </li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="login.html" class="btn btn-primary btn-sm" style="color:var(--blu-dark);">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<div class="page-header">
+  <div class="container">
+    <h1>La Nostra Sezione</h1>
+    <p>Chi siamo, la nostra storia e la nostra organizzazione</p>
+  </div>
+</div>
+
+<!-- ============ CHI SIAMO ============ -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+      <div>
+        <p style="font-size:0.82rem;color:var(--blu);font-family:var(--font-cond);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Chi siamo</p>
+        <h2 style="font-size:2rem;margin-bottom:20px;color:var(--testo);">AIA Sezione <span style="color:var(--blu)">Valdarno</span></h2>
+        <div style="width:50px;height:3px;background:var(--oro);border-radius:2px;margin-bottom:24px;"></div>
+        <p style="color:var(--grigio);line-height:1.8;margin-bottom:16px;font-weight:300;">La Sezione Valdarno dell'Associazione Italiana Arbitri è l'organismo territoriale che coordina, forma e aggiorna tutti gli arbitri di calcio della zona del Valdarno aretino e fiorentino.</p>
+        <p style="color:var(--grigio);line-height:1.8;margin-bottom:16px;font-weight:300;">Con sede a Montevarchi, la nostra sezione opera sotto l'egida dell'AIA nazionale e della FIGC, garantendo la presenza di arbitri qualificati in tutti i campionati dilettantistici e giovanili del territorio.</p>
+        <p style="color:var(--grigio);line-height:1.8;font-weight:300;">Ogni anno organizziamo corsi per nuovi arbitri, sessioni di aggiornamento tecnico (RTO) e raduni di preparazione atletica per mantenere elevato il livello qualitativo dei nostri direttori di gara.</p>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);">
+        <img src="https://picsum.photos/seed/valdarno-team/600/450" alt="AIA Valdarno" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMERI ============ -->
+<section class="section info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <h3>1913</h3>
+        <p>Anno di fondazione AIA</p>
+      </div>
+      <div class="info-item">
+        <h3>Valdarno</h3>
+        <p>La nostra sezione</p>
+      </div>
+      <div class="info-item">
+        <h3>201</h3>
+        <p>Sezioni in Italia</p>
+      </div>
+      <div class="info-item">
+        <h3>36.000+</h3>
+        <p>Arbitri in Italia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIA ============ -->
+<section class="section" id="storia">
+  <div class="container">
+    <div class="section-header">
+      <h2>La Nostra <span style="color:var(--oro)">Storia</span></h2>
+      <p>Un percorso lungo decenni al servizio del calcio dilettantistico</p>
+      <div class="line"></div>
+    </div>
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="display:flex;flex-direction:column;gap:0;">
+
+        <div style="display:flex;gap:32px;padding:32px 0;border-bottom:1px solid #f0f4f8;">
+          <div style="min-width:80px;text-align:center;">
+            <span style="font-family:var(--font-cond);font-size:1.5rem;font-weight:700;color:var(--blu);">1913</span>
+          </div>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:8px;">Fondazione dell'AIA</h4>
+            <p style="color:var(--grigio);font-weight:300;line-height:1.7;">L'Associazione Italiana Arbitri viene fondata a livello nazionale, dando inizio all'organizzazione strutturata del movimento arbitrale italiano.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:32px;padding:32px 0;border-bottom:1px solid #f0f4f8;">
+          <div style="min-width:80px;text-align:center;">
+            <span style="font-family:var(--font-cond);font-size:1.5rem;font-weight:700;color:var(--blu);">Anni '60</span>
+          </div>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:8px;">Nascita della Sezione Valdarno</h4>
+            <p style="color:var(--grigio);font-weight:300;line-height:1.7;">La Sezione di Valdarno viene costituita per rispondere alla crescente domanda di arbitri qualificati nel territorio, a supporto dei campionati locali in forte espansione.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:32px;padding:32px 0;border-bottom:1px solid #f0f4f8;">
+          <div style="min-width:80px;text-align:center;">
+            <span style="font-family:var(--font-cond);font-size:1.5rem;font-weight:700;color:var(--blu);">Anni '90</span>
+          </div>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:8px;">Crescita e consolidamento</h4>
+            <p style="color:var(--grigio);font-weight:300;line-height:1.7;">La sezione consolida la sua presenza nel territorio, con numerosi arbitri che raggiungono categorie regionali e nazionali, portando il nome del Valdarno in tutta Italia.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:32px;padding:32px 0;">
+          <div style="min-width:80px;text-align:center;">
+            <span style="font-family:var(--font-cond);font-size:1.5rem;font-weight:700;color:var(--blu);">Oggi</span>
+          </div>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:8px;">Presente e futuro</h4>
+            <p style="color:var(--grigio);font-weight:300;line-height:1.7;">La Sezione Valdarno continua a formare nuovi arbitri e a garantire la copertura arbitrale di tutti i campionati del territorio, con un occhio sempre rivolto all'innovazione nella formazione.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIRIGENZA ============ -->
+<section class="section" id="dirigenza" style="background:var(--grigio-pale);">
+  <div class="container">
+    <div class="section-header">
+      <h2>La <span style="color:var(--oro)">Dirigenza</span></h2>
+      <p>Le figure di riferimento della nostra sezione</p>
+      <div class="line"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="card" style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--blu-pale);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2rem;">👤</div>
+        <h3 style="margin-bottom:4px;">Presidente di Sezione</h3>
+        <p style="color:var(--blu);font-weight:500;font-size:0.9rem;margin-bottom:8px;">Presidente</p>
+        <p>Guida e rappresenta la sezione in tutte le sedi istituzionali.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--blu-pale);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2rem;">👤</div>
+        <h3 style="margin-bottom:4px;">Vicepresidente</h3>
+        <p style="color:var(--blu);font-weight:500;font-size:0.9rem;margin-bottom:8px;">Vicepresidente</p>
+        <p>Supporto e sostituzione del Presidente nelle attività di sezione.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--blu-pale);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2rem;">👤</div>
+        <h3 style="margin-bottom:4px;">Responsabile Tecnico</h3>
+        <p style="color:var(--blu);font-weight:500;font-size:0.9rem;margin-bottom:8px;">Area Tecnica</p>
+        <p>Coordina la formazione e l'aggiornamento degli arbitri della sezione.</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;color:var(--grigio);font-size:0.9rem;">Per i dettagli sul consiglio di sezione, <a href="contatti.html" style="color:var(--blu);">contattaci</a>.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:56px;width:auto;">
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📷</span>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);">@aia_valdarno</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initNavbar } from './js/auth.js';
+  import { initDropdowns } from './js/navbar.js';
+  initNavbar().then(() => initDropdowns());
+</script>
+
+</body>
+</html>

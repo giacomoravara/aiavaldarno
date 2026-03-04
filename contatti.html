@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti — AIA Sezione Valdarno</title>
+  <meta name="description" content="Contatta la Sezione Valdarno dell'Associazione Italiana Arbitri. Trova sede, email e telefono.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
+    <div class="navbar-brand-text">AIA <span class="oro">Valdarno</span><small>Associazione Italiana Arbitri</small></div>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li class="has-dropdown">
+      <a href="chi-siamo.html">La Sezione <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="chi-siamo.html#storia">Storia</a></li>
+        <li><a href="chi-siamo.html#dirigenza">Dirigenza</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="area-tecnica.html">Area Tecnica <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="area-tecnica.html">Regolamenti</a></li>
+        <li><a href="area-tecnica.html#rto">Test atletici (RTO)</a></li>
+        <li><a href="area-tecnica.html#rimborsi">Rimborsi</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="diventa-arbitro.html">Diventa Arbitro <span class="nav-arrow">▾</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="diventa-arbitro.html#perche">Perché arbitro</a></li>
+        <li><a href="diventa-arbitro.html#come">Come si diventa</a></li>
+        <li><a href="diventa-arbitro.html#iscriviti">Iscriviti ora</a></li>
+      </ul>
+    </li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contatti.html" class="active">Contatti</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="login.html" class="btn btn-primary btn-sm" style="color:var(--blu-dark);">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <span data-user-name style="font-size:0.82rem;color:var(--grigio);padding:0 8px;"></span>
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<div class="page-header">
+  <div class="container">
+    <h1>Contatti</h1>
+    <p>Siamo a tua disposizione per qualsiasi informazione</p>
+  </div>
+</div>
+
+<!-- ============ CONTATTI MAIN ============ -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+
+      <!-- Info contatti -->
+      <div>
+        <p style="font-size:0.82rem;color:var(--blu);font-family:var(--font-cond);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Come trovarci</p>
+        <h2 style="font-size:2rem;margin-bottom:20px;">Sezione <span style="color:var(--blu)">Valdarno</span></h2>
+        <div style="width:50px;height:3px;background:var(--oro);border-radius:2px;margin-bottom:32px;"></div>
+
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:44px;height:44px;border-radius:10px;background:var(--blu-pale);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📍</div>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.9rem;letter-spacing:0.5px;margin-bottom:4px;color:var(--testo);">Sede</div>
+              <p style="color:var(--grigio);font-weight:300;line-height:1.6;">Viale G. Leopardi 31/B<br>52025 Montevarchi (AR)</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:44px;height:44px;border-radius:10px;background:var(--blu-pale);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📞</div>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.9rem;letter-spacing:0.5px;margin-bottom:4px;color:var(--testo);">Telefono</div>
+              <a href="tel:+393939723207" style="color:var(--blu);font-weight:300;">393 972 3207</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:44px;height:44px;border-radius:10px;background:var(--blu-pale);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📧</div>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.9rem;letter-spacing:0.5px;margin-bottom:4px;color:var(--testo);">Email</div>
+              <a href="mailto:aiavaldarno@gmail.com" style="color:var(--blu);font-weight:300;">aiavaldarno@gmail.com</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="min-width:44px;height:44px;border-radius:10px;background:var(--blu-pale);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📷</div>
+            <div>
+              <div style="font-family:var(--font-cond);font-weight:600;font-size:0.9rem;letter-spacing:0.5px;margin-bottom:4px;color:var(--testo);">Instagram</div>
+              <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:var(--blu);font-weight:300;">@aia_valdarno</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;padding:20px;background:var(--blu-pale);border-radius:10px;border-left:4px solid var(--blu);">
+          <p style="font-size:0.9rem;color:var(--testo);font-weight:300;line-height:1.6;"><strong style="font-weight:600;">Orari di segreteria:</strong><br>Le riunioni di sezione si tengono di norma il martedì sera. Contattaci per confermare orari e disponibilità.</p>
+        </div>
+      </div>
+
+      <!-- Box form / info aggiuntive -->
+      <div>
+        <div style="background:var(--grigio-pale);border-radius:12px;padding:36px;border:1px solid #dce4f0;">
+          <h3 style="font-size:1.3rem;margin-bottom:8px;">Scrivici</h3>
+          <p style="color:var(--grigio);font-weight:300;font-size:0.9rem;margin-bottom:24px;line-height:1.6;">Per informazioni su corsi per arbitri, eventi, tesseramento o qualsiasi altra richiesta, inviaci un'email.</p>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="mailto:aiavaldarno@gmail.com?subject=Richiesta%20informazioni" class="btn btn-primary" style="background:var(--blu);color:#fff;text-align:center;">📧 Invia un'email</a>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" class="btn btn-secondary" style="text-align:center;">📷 Seguici su Instagram</a>
+            <a href="diventa-arbitro.html#iscriviti" class="btn" style="background:var(--oro);color:#fff;text-align:center;">⚽ Voglio diventare arbitro</a>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;background:var(--bianco);border-radius:12px;padding:28px;border:1px solid #dce4f0;">
+          <h4 style="font-size:1rem;margin-bottom:16px;">Link utili AIA</h4>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="https://www.aia-figc.it" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:var(--blu);font-size:0.9rem;font-weight:400;">
+              <span style="font-size:1rem;">🔗</span> AIA Nazionale (aia-figc.it)
+            </a>
+            <a href="https://www.figc.it" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:var(--blu);font-size:0.9rem;font-weight:400;">
+              <span style="font-size:1rem;">🔗</span> FIGC (figc.it)
+            </a>
+            <a href="https://www.lnd.it" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:var(--blu);font-size:0.9rem;font-weight:400;">
+              <span style="font-size:1rem;">🔗</span> Lega Nazionale Dilettanti (lnd.it)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:56px;width:auto;">
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="diventa-arbitro.html">Diventa Arbitro</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📷</span>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);">@aia_valdarno</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initNavbar } from './js/auth.js';
+  import { initDropdowns } from './js/navbar.js';
+  initNavbar().then(() => initDropdowns());
+</script>
+
+</body>
+</html>
