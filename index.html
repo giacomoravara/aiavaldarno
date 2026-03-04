@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIA Sezione Valdarno — Associazione Italiana Arbitri</title>
+  <meta name="description" content="Sito ufficiale della Sezione Valdarno dell'Associazione Italiana Arbitri. Sede a Montevarchi (AR).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    /* Stili specifici homepage */
+    .notizie-section { background: var(--nero); }
+
+    .tilt-card {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+    }
+    .tilt-card:hover {
+      box-shadow: 0 20px 60px rgba(201,168,76,0.2);
+    }
+
+    /* Sezione contatti homepage */
+    .contatti-bar {
+      background: rgba(201,168,76,0.06);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 24px 0;
+    }
+    .contatti-bar-inner {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .contatti-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--grigio-light);
+      font-size: 0.9rem;
+    }
+    .contatti-bar-item span.ico { color: var(--oro); font-size: 1.1rem; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--grigio);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator .arrow { font-size: 1.2rem; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <a href="/index.html" class="navbar-brand">
+    <div class="logo-icon">AIA</div>
+    <span>AIA <span class="oro">Valdarno</span></span>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li><a href="/index.html" class="active">Home</a></li>
+    <li><a href="/calendario.html">Calendario</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="/arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="/admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="/login.html" class="btn btn-primary btn-sm">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-badge">⚽ Sezione di Montevarchi (AR)</div>
+    <h1 class="hero-title">
+      <span class="shimmer">AIA Sezione</span><br>Valdarno
+    </h1>
+    <p class="hero-subtitle">
+      Associazione Italiana Arbitri — formiamo i migliori direttori di gara della Toscana.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:?subject=Richiesta%20informazioni%20AIA%20Valdarno" class="btn btn-primary">Diventa Arbitro</a>
+      <a href="/login.html" class="btn btn-secondary">Accedi</a>
+      <a href="/calendario.html" class="btn btn-secondary">Calendario</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    Scorri
+    <span class="arrow">↓</span>
+  </div>
+</section>
+
+<!-- ============ CONTATTI BAR ============ -->
+<div class="contatti-bar">
+  <div class="container">
+    <div class="contatti-bar-inner">
+      <div class="contatti-bar-item">
+        <span class="ico">📍</span>
+        <span>Viale G. Leopardi 31/B, Montevarchi (AR)</span>
+      </div>
+      <div class="contatti-bar-item">
+        <span class="ico">📞</span>
+        <span>393 972 3207</span>
+      </div>
+      <div class="contatti-bar-item">
+        <span class="ico">🏆</span>
+        <span>Sezione affiliata FIGC</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NOTIZIE ============ -->
+<section class="section notizie-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Novità dalla <span style="color:var(--oro)">Sezione</span></h2>
+      <p>Aggiornamenti, comunicazioni e news per i nostri arbitri</p>
+      <div class="line"></div>
+    </div>
+    <div class="cards-grid" id="notizie-grid">
+      <!-- Card statiche di esempio -->
+      <div class="card tilt-card evento-raduno">
+        <div class="card-icon">📋</div>
+        <h3>Raduno Stagionale</h3>
+        <p>Il prossimo raduno si terrà a Montevarchi. Presenza obbligatoria per tutti gli arbitri della sezione. Portare il tesserino.</p>
+        <div style="margin-top:16px;"><span class="badge badge-blue">Raduno</span></div>
+      </div>
+      <div class="card tilt-card evento-corso">
+        <div class="card-icon">📚</div>
+        <h3>Corso Aggiornamento</h3>
+        <p>Corso di aggiornamento sul Regolamento del Gioco. Relatore: Designatore Regionale. Obbligatorio per la designazione.</p>
+        <div style="margin-top:16px;"><span class="badge badge-orange">Corso</span></div>
+      </div>
+      <div class="card tilt-card evento-rto">
+        <div class="card-icon">🏃</div>
+        <h3>RTO — Test Atletici</h3>
+        <p>Riunione Tecnica Organizzativa con test atletici stagionali. Prepararsi con abbigliamento sportivo idoneo.</p>
+        <div style="margin-top:16px;"><span class="badge badge-green">RTO</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="/calendario.html" class="btn btn-secondary">Vedi tutti gli eventi →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFO SECTION ============ -->
+<section class="section info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <h3>1913</h3>
+        <p>Anno di fondazione AIA</p>
+      </div>
+      <div class="info-item">
+        <h3>36.000+</h3>
+        <p>Arbitri in Italia</p>
+      </div>
+      <div class="info-item">
+        <h3>201</h3>
+        <p>Sezioni in Italia</p>
+      </div>
+      <div class="info-item">
+        <h3>Valdarno</h3>
+        <p>La nostra sezione</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERCHÉ DIVENTARE ARBITRO ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Perché diventare <span style="color:var(--oro)">Arbitro?</span></h2>
+      <p>Un percorso di crescita personale e sportiva</p>
+      <div class="line"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="card tilt-card">
+        <div class="card-icon">🎓</div>
+        <h3>Formazione Continua</h3>
+        <p>Corsi, aggiornamenti e sessioni tecniche per crescere come direttore di gara ad ogni livello.</p>
+      </div>
+      <div class="card tilt-card">
+        <div class="card-icon">👥</div>
+        <h3>Comunità</h3>
+        <p>Entra a far parte di una grande famiglia. Oltre 36.000 arbitri in tutta Italia, uniti dalla passione per il calcio.</p>
+      </div>
+      <div class="card tilt-card">
+        <div class="card-icon">⚖️</div>
+        <h3>Fair Play</h3>
+        <p>Sii il custode delle regole del gioco. Un ruolo fondamentale per il corretto svolgimento di ogni partita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="navbar-brand" style="position:static;">
+          <div class="logo-icon">AIA</div>
+          <span>AIA <span class="oro">Valdarno</span></span>
+        </div>
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/calendario.html">Calendario</a></li>
+          <li><a href="/login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.warn('SW registration failed:', err);
+      });
+    });
+  }
+</script>
+
+<!-- Three.js r128 — Pallone 3D -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+(function() {
+  // ─── THREE.JS — Pallone rotante ───
+  const canvas = document.getElementById('hero-canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 4;
+
+  // Luci
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xC9A84C, 1.2);
+  dirLight.position.set(5, 5, 5);
+  scene.add(dirLight);
+
+  const backLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  backLight.position.set(-5, -3, -5);
+  scene.add(backLight);
+
+  // Sfera (pallone semplificato)
+  const geometry = new THREE.SphereGeometry(1.1, 64, 64);
+
+  // Materiale nero/oro ispirato al pallone
+  const material = new THREE.MeshPhongMaterial({
+    color: 0xC9A84C,
+    specular: 0xffffff,
+    shininess: 60,
+    wireframe: false,
+  });
+
+  const ball = new THREE.Mesh(geometry, material);
+  scene.add(ball);
+
+  // Wireframe overlay
+  const wireGeo = new THREE.SphereGeometry(1.12, 16, 16);
+  const wireMat = new THREE.MeshBasicMaterial({
+    color: 0x0a0a0a,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.35,
+  });
+  const wire = new THREE.Mesh(wireGeo, wireMat);
+  scene.add(wire);
+
+  // Anelli decorativi (pentagoni simulati con tori)
+  for (let i = 0; i < 5; i++) {
+    const torusGeo = new THREE.TorusGeometry(0.5, 0.04, 8, 32);
+    const torusMat = new THREE.MeshPhongMaterial({ color: 0x111111 });
+    const torus = new THREE.Mesh(torusGeo, torusMat);
+    torus.rotation.x = (Math.PI / 5) * i;
+    torus.rotation.y = (Math.PI / 4) * i;
+    scene.add(torus);
+  }
+
+  // Anima
+  function animate() {
+    requestAnimationFrame(animate);
+    ball.rotation.y += 0.004;
+    ball.rotation.x += 0.002;
+    wire.rotation.y += 0.004;
+    wire.rotation.x += 0.002;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  // ─── Particelle — campo da calcio ───
+  const pCanvas = document.getElementById('particles-canvas');
+  const ctx = pCanvas.getContext('2d');
+  let W = pCanvas.width = window.innerWidth;
+  let H = pCanvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    W = pCanvas.width = window.innerWidth;
+    H = pCanvas.height = window.innerHeight;
+  });
+
+  const particles = Array.from({ length: 80 }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    r: Math.random() * 2.5 + 0.5,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    alpha: Math.random() * 0.5 + 0.1,
+  }));
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, W, H);
+    // Linee campo da calcio (sfondo)
+    ctx.strokeStyle = 'rgba(201,168,76,0.04)';
+    ctx.lineWidth = 1;
+    // Centro campo
+    ctx.beginPath();
+    ctx.arc(W/2, H/2, Math.min(W,H)*0.22, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(W/2, 0); ctx.lineTo(W/2, H); ctx.stroke();
+    ctx.strokeRect(W*0.1, H*0.15, W*0.3, H*0.7);
+    ctx.strokeRect(W*0.6, H*0.15, W*0.3, H*0.7);
+
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(201,168,76,${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  // ─── Tilt 3D card effect ───
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = (-y / rect.height) * 12;
+      const rotY = (x / rect.width) * 12;
+      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+})();
+</script>
+
+<!-- Auth navbar init -->
+<script type="module">
+  import { initNavbar } from '/js/auth.js';
+  initNavbar();
+</script>
+
+</body>
+</html>

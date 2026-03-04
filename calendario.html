@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario — AIA Sezione Valdarno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/index.html" class="navbar-brand">
+    <div class="logo-icon">AIA</div>
+    <span>AIA <span class="oro">Valdarno</span></span>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/calendario.html" class="active">Calendario</a></li>
+    <li data-role="arbitro,admin,superadmin" style="display:none;">
+      <a href="/arbitro/area-personale.html">Area Personale</a>
+    </li>
+    <li data-role="admin,superadmin" style="display:none;">
+      <a href="/admin/dashboard.html">Admin</a>
+    </li>
+    <li data-role="guest" style="display:none;">
+      <a href="/login.html" class="btn btn-primary btn-sm">Accedi</a>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1>📅 Calendario <span style="color:var(--oro)">Eventi</span></h1>
+    <p>Raduni, RTO, corsi e partite della Sezione Valdarno</p>
+  </div>
+</div>
+
+<!-- Calendario -->
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div id="info-banner" class="alert alert-info" style="display:none; margin-bottom:24px;">
+      <span id="info-banner-text"></span>
+    </div>
+    <div id="calendario-container">
+      <div class="loading">
+        <div class="spinner"></div>
+        <span>Caricamento calendario...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="navbar-brand" style="position:static;">
+          <div class="logo-icon">AIA</div>
+          <span>AIA <span class="oro">Valdarno</span></span>
+        </div>
+        <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
+          Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
+      </div>
+      <div>
+        <h4>Link Utili</h4>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/calendario.html">Calendario</a></li>
+          <li><a href="/login.html">Area Riservata</a></li>
+          <li><a href="https://www.aia-figc.it" target="_blank" rel="noopener">AIA Nazionale ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Viale G. Leopardi 31/B<br>Montevarchi (AR)</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>393 972 3207</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AIA Sezione Valdarno. Tutti i diritti riservati.</p>
+      <p>Associazione Italiana Arbitri — FIGC</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initNavbar } from '/js/auth.js';
+  import { initCalendario } from '/js/calendario.js';
+  import { getSession, getUserProfile } from '/js/supabase-client.js';
+
+  async function init() {
+    const { role } = await initNavbar();
+
+    // Mostra banner info in base al ruolo
+    const banner = document.getElementById('info-banner');
+    const bannerText = document.getElementById('info-banner-text');
+
+    if (role === 'pubblico') {
+      banner.style.display = 'block';
+      bannerText.textContent = '👤 Stai visualizzando gli eventi pubblici. Accedi per vedere tutti gli eventi riservati agli arbitri.';
+    } else if (role === 'arbitro') {
+      banner.style.display = 'block';
+      bannerText.textContent = `🏆 Benvenuto! Visualizzi gli eventi riservati agli arbitri.`;
+    }
+
+    // Admin/superadmin: modalità admin con possibilità di gestire eventi
+    const isAdmin = role === 'admin' || role === 'superadmin';
+    await initCalendario('calendario-container', isAdmin);
+  }
+
+  init();
+</script>
+
+</body>
+</html>

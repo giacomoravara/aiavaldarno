@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin — AIA Sezione Valdarno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/index.html" class="navbar-brand">
+    <div class="logo-icon">AIA</div>
+    <span>AIA <span class="oro">Valdarno</span></span>
+  </a>
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-nav">
+    <li><a href="/index.html">Sito Pubblico</a></li>
+    <li><a href="/calendario.html">Calendario</a></li>
+    <li data-role="auth" style="display:none;">
+      <span data-user-name style="color:var(--grigio);font-size:0.85rem;padding:6px 14px;"></span>
+    </li>
+    <li data-role="auth" style="display:none;">
+      <a href="#" data-action="logout" class="btn btn-secondary btn-sm">Esci</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Pannello</div>
+      <ul class="sidebar-nav">
+        <li><a href="/admin/dashboard.html" class="active"><span class="icon">📊</span> Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Gestione</div>
+      <ul class="sidebar-nav">
+        <li><a href="/admin/eventi.html"><span class="icon">📅</span> Eventi</a></li>
+        <li><a href="/admin/utenti.html" data-role="superadmin"><span class="icon">👥</span> Utenti</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navigazione</div>
+      <ul class="sidebar-nav">
+        <li><a href="/calendario.html"><span class="icon">🗓️</span> Calendario Pubblico</a></li>
+        <li><a href="/index.html"><span class="icon">🏠</span> Homepage</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Panoramica della Sezione Valdarno</p>
+      </div>
+      <span id="dash-date" style="color:var(--grigio);font-size:0.9rem;"></span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-oro">👥</div>
+        <div class="stat-info">
+          <h3 id="stat-utenti">—</h3>
+          <p>Utenti Totali</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-blue">⚽</div>
+        <div class="stat-info">
+          <h3 id="stat-arbitri">—</h3>
+          <p>Arbitri</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-green">📅</div>
+        <div class="stat-info">
+          <h3 id="stat-eventi-mese">—</h3>
+          <p>Eventi questo mese</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-red">🔔</div>
+        <div class="stat-info">
+          <h3 id="stat-push">—</h3>
+          <p>Push inviate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="section-box">
+      <h3>⚡ Accesso Rapido</h3>
+      <div class="quick-links">
+        <a href="/admin/eventi.html" class="quick-link">
+          <span class="icon">📅</span>
+          <span>Gestisci Eventi</span>
+        </a>
+        <a href="/admin/utenti.html" class="quick-link" data-role="superadmin">
+          <span class="icon">👥</span>
+          <span>Gestisci Utenti</span>
+        </a>
+        <a href="/calendario.html" class="quick-link">
+          <span class="icon">🗓️</span>
+          <span>Calendario</span>
+        </a>
+        <a href="/index.html" class="quick-link">
+          <span class="icon">🌐</span>
+          <span>Sito Pubblico</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Distribuzione ruoli -->
+    <div class="section-box" id="role-breakdown-box" style="display:none;">
+      <h3>👥 Utenti per Ruolo</h3>
+      <div id="role-breakdown" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;"></div>
+    </div>
+
+    <!-- Prossimi eventi -->
+    <div class="section-box">
+      <h3>📅 Prossimi Eventi</h3>
+      <div id="prossimi-eventi">
+        <div class="loading"><div class="spinner"></div><span>Caricamento...</span></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script type="module">
+  import { requireRole, initNavbar } from '/js/auth.js';
+  import { loadDashboardStats, loadEventi } from '/js/admin.js';
+  import { supabase } from '/js/supabase-client.js';
+
+  async function init() {
+    const profile = await requireRole(['superadmin', 'admin']);
+    if (!profile) return;
+
+    await initNavbar();
+
+    // Data corrente
+    const dateEl = document.getElementById('dash-date');
+    if (dateEl) {
+      dateEl.textContent = new Date().toLocaleDateString('it-IT', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    // Nascondi link utenti se non superadmin
+    if (profile.role !== 'superadmin') {
+      document.querySelectorAll('[data-role="superadmin"]').forEach(el => el.style.display = 'none');
+    }
+
+    // Stats
+    const stats = await loadDashboardStats();
+    document.getElementById('stat-utenti').textContent = stats.totaleUtenti;
+    document.getElementById('stat-arbitri').textContent = stats.perRuolo.arbitro;
+    document.getElementById('stat-eventi-mese').textContent = stats.eventiMese;
+    document.getElementById('stat-push').textContent = stats.pushInviate;
+
+    // Distribuzione ruoli (solo superadmin)
+    if (profile.role === 'superadmin') {
+      const box = document.getElementById('role-breakdown-box');
+      box.style.display = 'block';
+      const bd = document.getElementById('role-breakdown');
+      const roles = [
+        { key: 'superadmin', label: 'Super Admin', badge: 'badge-oro' },
+        { key: 'admin', label: 'Admin', badge: 'badge-blue' },
+        { key: 'arbitro', label: 'Arbitri', badge: 'badge-green' },
+        { key: 'pubblico', label: 'Pubblico', badge: 'badge-gray' },
+      ];
+      bd.innerHTML = roles.map(r => `
+        <div style="background:#0f0f0f;border:1px solid var(--nero-border);border-radius:10px;padding:20px;text-align:center;">
+          <div style="font-size:1.8rem;font-weight:700;color:var(--oro);margin-bottom:6px;">${stats.perRuolo[r.key]}</div>
+          <span class="badge ${r.badge}">${r.label}</span>
+        </div>
+      `).join('');
+    }
+
+    // Prossimi eventi
+    const oggi = new Date().toISOString().split('T')[0];
+    const { data: eventi } = await supabase
+      .from('events')
+      .select('*')
+      .gte('date', oggi)
+      .order('date', { ascending: true })
+      .limit(5);
+
+    const eventiEl = document.getElementById('prossimi-eventi');
+    if (!eventi || eventi.length === 0) {
+      eventiEl.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Nessun evento programmato.</p></div>';
+    } else {
+      const TIPO_BADGE = { Raduno:'badge-blue', RTO:'badge-green', Corso:'badge-orange', Partita:'badge-red', Altro:'badge-gray' };
+      eventiEl.innerHTML = eventi.map(e => {
+        const d = new Date(e.date + 'T00:00:00');
+        const day = d.getDate();
+        const month = d.toLocaleDateString('it-IT', { month: 'short' }).toUpperCase();
+        return `
+          <div class="event-row">
+            <div class="event-date-block">
+              <div class="day">${day}</div>
+              <div class="month">${month}</div>
+            </div>
+            <div class="event-info">
+              <h4>${e.title}</h4>
+              <p>${e.time ? `⏰ ${e.time} — ` : ''}${e.notes || ''}</p>
+            </div>
+            <span class="badge ${TIPO_BADGE[e.type] || 'badge-gray'}">${e.type}</span>
+            <span class="badge ${e.visibile_a === 'tutti' ? 'badge-green' : 'badge-orange'}">${e.visibile_a}</span>
+            <div class="event-actions">
+              <a href="/admin/eventi.html" class="btn btn-sm btn-secondary">Gestisci</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  init();
+</script>
+
+</body>
+</html>

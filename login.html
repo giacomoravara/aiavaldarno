@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accedi — AIA Sezione Valdarno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px 40px;
+      background: radial-gradient(ellipse at center, #141008 0%, var(--nero) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-bg-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      background: #0f0f0f;
+      border: 1px solid var(--nero-border);
+      border-radius: 16px;
+      padding: 44px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo .logo-circle {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--oro-dark), var(--oro));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--nero);
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+    }
+
+    .login-logo h1 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .login-logo p {
+      color: var(--grigio);
+      font-size: 0.85rem;
+    }
+
+    .login-divider {
+      border: none;
+      border-top: 1px solid var(--nero-border);
+      margin: 28px 0;
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--nero-border);
+    }
+    .login-footer p {
+      color: var(--grigio);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    .login-footer a { color: var(--oro); }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .input-group {
+      position: relative;
+    }
+    .input-group input {
+      padding-left: 42px;
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--grigio);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    /* Password toggle */
+    .pwd-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--grigio);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0;
+      transition: color var(--transition);
+    }
+    .pwd-toggle:hover { color: var(--oro); }
+  </style>
+</head>
+<body>
+
+<!-- Navbar minimal -->
+<nav class="navbar">
+  <a href="/index.html" class="navbar-brand">
+    <div class="logo-icon">AIA</div>
+    <span>AIA <span class="oro">Valdarno</span></span>
+  </a>
+  <ul class="navbar-nav" id="navbar-nav" style="display:flex;">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/calendario.html">Calendario</a></li>
+  </ul>
+</nav>
+
+<div class="login-page">
+  <!-- Linee di sfondo -->
+  <svg class="login-bg-lines" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    <line x1="400" y1="0" x2="400" y2="600" stroke="#C9A84C" stroke-width="1"/>
+    <circle cx="400" cy="300" r="150" fill="none" stroke="#C9A84C" stroke-width="1"/>
+    <rect x="50" y="100" width="200" height="400" fill="none" stroke="#C9A84C" stroke-width="1"/>
+    <rect x="550" y="100" width="200" height="400" fill="none" stroke="#C9A84C" stroke-width="1"/>
+  </svg>
+
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-circle">AIA</div>
+      <h1>Area Riservata</h1>
+      <p>Sezione Valdarno — Montevarchi (AR)</p>
+    </div>
+
+    <div id="login-error" class="alert alert-error" style="display:none;"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <span class="input-icon">✉️</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="nome@esempio.it"
+            required
+            autocomplete="email"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <span class="input-icon">🔒</span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+            autocomplete="current-password"
+          >
+          <button type="button" class="pwd-toggle" id="pwd-toggle" aria-label="Mostra/nascondi password">👁️</button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-login" id="login-btn">
+        <span id="login-btn-text">Accedi</span>
+        <span id="login-spinner" class="spinner" style="display:none;"></span>
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p>
+        Non hai un account?<br>
+        <a href="mailto:393 972 3207?subject=Richiesta%20accesso%20AIA%20Valdarno">
+          Contatta l'amministratore per registrarti
+        </a>
+      </p>
+      <p style="margin-top:12px;">
+        <a href="/index.html">← Torna alla Homepage</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { login, getSession } from '/js/auth.js';
+
+  // Redirect se già loggato
+  (async () => {
+    const session = await getSession();
+    if (session) window.location.href = '/index.html';
+  })();
+
+  // Toggle password
+  const pwdInput = document.getElementById('password');
+  const pwdToggle = document.getElementById('pwd-toggle');
+  pwdToggle.addEventListener('click', () => {
+    const isHidden = pwdInput.type === 'password';
+    pwdInput.type = isHidden ? 'text' : 'password';
+    pwdToggle.textContent = isHidden ? '🙈' : '👁️';
+  });
+
+  // Login form
+  document.getElementById('login-form').addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const errorEl = document.getElementById('login-error');
+    const btn = document.getElementById('login-btn');
+    const btnText = document.getElementById('login-btn-text');
+    const spinner = document.getElementById('login-spinner');
+
+    errorEl.style.display = 'none';
+    btn.disabled = true;
+    btnText.textContent = 'Accesso in corso...';
+    spinner.style.display = 'inline-block';
+
+    const { success, error } = await login(email, password);
+
+    if (!success) {
+      let msg = error || 'Errore durante il login.';
+      if (msg.includes('Invalid login credentials')) msg = 'Email o password non corretti.';
+      if (msg.includes('Email not confirmed')) msg = 'Email non confermata. Controlla la tua casella.';
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btnText.textContent = 'Accedi';
+      spinner.style.display = 'none';
+    }
+    // Se success, il redirect avviene nella funzione login()
+  });
+</script>
+
+</body>
+</html>
