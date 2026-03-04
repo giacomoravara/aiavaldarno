@@ -197,7 +197,256 @@ h1, h2, h3, h4, h5 {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ---- Hero Section ---- */
+/* ---- Carousel ---- */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 460px;
+  overflow: hidden;
+  margin-top: 68px; /* navbar height */
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for text readability */
+.carousel-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13,45,96,0.25) 0%,
+    rgba(13,45,96,0.5) 100%
+  );
+}
+
+/* Placeholder gradients (user sostituisce con background-image: url(images/foto.jpg)) */
+.carousel-slide.slide-1 { background: linear-gradient(135deg, #0d2d60 0%, #1a52a4 50%, #1e5fc8 100%); }
+.carousel-slide.slide-2 { background: linear-gradient(135deg, #0a1f3d 0%, #163d80 50%, #1a52a4 100%); }
+.carousel-slide.slide-3 { background: linear-gradient(135deg, #0f2750 0%, #1a52a4 50%, #2a62c4 100%); }
+
+.carousel-slide-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--bianco);
+}
+
+.carousel-slide-content img {
+  width: 110px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+}
+
+.carousel-slide-content h2 {
+  font-family: var(--font-cond);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+}
+
+.carousel-slide-content p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+
+/* Carousel arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--bianco);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  line-height: 1;
+}
+.carousel-btn:hover { background: rgba(255,255,255,0.3); border-color: var(--bianco); }
+.carousel-prev { left: 20px; }
+.carousel-next { right: 20px; }
+
+/* Carousel dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--bianco);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ---- CTA Banner ---- */
+.cta-banner {
+  background: var(--blu);
+  color: var(--bianco);
+  padding: 40px 0;
+}
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.cta-banner-text h2 {
+  font-family: var(--font-cond);
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+.cta-banner-text p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  font-weight: 300;
+}
+.cta-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+
+/* White button (on colored backgrounds) */
+.btn-white {
+  background: var(--bianco);
+  color: var(--blu-dark);
+}
+.btn-white:hover {
+  background: var(--oro);
+  color: var(--bianco);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200,160,80,0.35);
+}
+.btn-outline-white {
+  background: transparent;
+  color: var(--bianco);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--bianco);
+  transform: translateY(-2px);
+}
+
+/* ---- Instagram Cards ---- */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.insta-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #dce4f0;
+  text-decoration: none;
+  color: var(--testo);
+  display: block;
+  transition: all var(--transition);
+  background: var(--bianco);
+}
+.insta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(26,82,164,0.14);
+  border-color: var(--blu);
+  color: var(--testo);
+}
+
+.insta-img {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+.insta-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 2.5rem;
+}
+.insta-img-placeholder span {
+  font-family: var(--font-cond);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.insta-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,82,164,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.insta-card:hover .insta-hover-overlay { opacity: 1; }
+.insta-hover-overlay svg { width: 36px; height: 36px; fill: white; }
+
+.insta-caption {
+  padding: 14px 16px;
+}
+.insta-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.insta-icon { color: #e1306c; font-size: 1.1rem; }
+.insta-date { font-size: 0.78rem; color: var(--grigio-light); font-weight: 400; }
+.insta-caption p { font-size: 0.88rem; color: var(--testo); line-height: 1.5; font-weight: 300; margin-bottom: 10px; }
+.insta-link-text { font-size: 0.78rem; color: var(--blu); font-family: var(--font-cond); font-weight: 600; letter-spacing: 0.5px; }
+
+/* ---- Old Hero (kept for non-home pages that may still use it) ---- */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -206,6 +455,7 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(160deg, var(--blu-dark) 0%, var(--blu) 55%, #2060c8 100%);
+  margin-top: 68px;
 }
 
 .hero::before {
@@ -479,7 +729,7 @@ tbody tr:hover td { background: var(--blu-pale); }
 .legenda-dot { width: 10px; height: 10px; border-radius: 50%; }
 
 /* ---- Page Header ---- */
-.page-header { background: linear-gradient(135deg, var(--blu-dark) 0%, var(--blu) 100%); padding: 100px 0 40px; text-align: center; }
+.page-header { background: linear-gradient(135deg, var(--blu-dark) 0%, var(--blu) 100%); padding: 100px 0 40px; text-align: center; margin-top: 68px; }
 .page-header h1 { font-size: 2.5rem; color: var(--bianco); margin-bottom: 8px; }
 .page-header p  { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; }
 
@@ -491,6 +741,9 @@ tbody tr:hover td { background: var(--blu-pale); }
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .cta-banner-inner { flex-direction: column; text-align: center; }
+  .cta-banner-actions { justify-content: center; }
 }
 
 @media (max-width: 700px) {
@@ -517,6 +770,16 @@ tbody tr:hover td { background: var(--blu-pale); }
   .cal-events-dots { gap: 2px; }
   .cal-event-dot { width: 6px; height: 6px; }
   .hero-cta { flex-direction: column; align-items: center; }
+  .hero-carousel { height: 55vh; min-height: 320px; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 1.1rem; }
+  .carousel-prev { left: 10px; }
+  .carousel-next { right: 10px; }
+  .carousel-slide-content img { width: 80px; margin-bottom: 16px; }
+  .carousel-slide-content h2 { font-size: 1.8rem; }
+  .insta-grid { grid-template-columns: 1fr; }
+  .cta-banner { padding: 28px 0; }
+  .cta-banner-text h2 { font-size: 1.5rem; }
+  .cta-banner-actions { flex-direction: column; align-items: stretch; }
 }
 
 @media (max-width: 480px) {

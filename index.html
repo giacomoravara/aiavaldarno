@@ -17,7 +17,7 @@
   <a href="index.html" class="navbar-brand">
     <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="logo-img">
   </a>
-  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu">
+  <button class="navbar-toggle" id="navbar-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="navbar-nav" id="navbar-nav">
@@ -38,84 +38,153 @@
   </ul>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-content">
-    <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" class="hero-logo">
-    <div class="hero-badge">Sezione di Montevarchi (AR)</div>
-    <h1 class="hero-title">
-      Associazione Italiana<br>Arbitri
-    </h1>
-    <p class="hero-subtitle">
-      Formiamo i migliori direttori di gara della Toscana. Entra a far parte della famiglia AIA Valdarno.
-    </p>
-    <div class="hero-cta">
-      <a href="mailto:aiavaldarno@gmail.com?subject=Voglio%20diventare%20arbitro" class="btn btn-primary">Diventa Arbitro</a>
-    </div>
-  </div>
+<!-- ============ HERO CAROUSEL ============ -->
+<div class="hero-carousel" id="hero-carousel">
+  <div class="carousel-track" id="carousel-track">
 
-  <div class="scroll-indicator">
-    Scorri
-    <span class="arrow">↓</span>
-  </div>
-</section>
-
-<!-- ============ CONTATTI BAR ============ -->
-<div class="contatti-bar">
-  <div class="container">
-    <div class="contatti-bar-inner">
-      <div class="contatti-bar-item">
-        <span class="ico">📍</span>
-        <span>Viale G. Leopardi 31/B, Montevarchi (AR)</span>
-      </div>
-      <div class="contatti-bar-item">
-        <span class="ico">📞</span>
-        <span>393 972 3207</span>
-      </div>
-      <div class="contatti-bar-item">
-        <span class="ico">🏆</span>
-        <span>Sezione affiliata FIGC</span>
+    <!-- Slide 1 — sostituire con background-image: url(images/slide1.jpg) -->
+    <div class="carousel-slide slide-1">
+      <div class="carousel-slide-content">
+        <img src="images/logo-aia.svg" alt="AIA Valdarno">
+        <h2>AIA Sezione Valdarno</h2>
+        <p>Associazione Italiana Arbitri — Stagione 2025/26</p>
       </div>
     </div>
+
+    <!-- Slide 2 — sostituire con background-image: url(images/slide2.jpg) -->
+    <div class="carousel-slide slide-2">
+      <div class="carousel-slide-content">
+        <img src="images/logo-aia.svg" alt="AIA Valdarno">
+        <h2>I Nostri Arbitri in Campo</h2>
+        <p>Direttori di gara formati dalla nostra sezione in tutta la Toscana</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 — sostituire con background-image: url(images/slide3.jpg) -->
+    <div class="carousel-slide slide-3">
+      <div class="carousel-slide-content">
+        <img src="images/logo-aia.svg" alt="AIA Valdarno">
+        <h2>Formazione e Crescita</h2>
+        <p>Corsi, aggiornamenti e raduni per diventare i migliori</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Arrows -->
+  <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Precedente">&#8249;</button>
+  <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Successivo">&#8250;</button>
+
+  <!-- Dots -->
+  <div class="carousel-dots" id="carousel-dots">
+    <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+    <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+    <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
   </div>
 </div>
 
-<!-- ============ NOTIZIE ============ -->
-<section class="section notizie-section">
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
   <div class="container">
-    <div class="section-header">
-      <h2>Novità dalla <span style="color:var(--oro)">Sezione</span></h2>
-      <p>Aggiornamenti, comunicazioni e news per i nostri arbitri</p>
-      <div class="line"></div>
-    </div>
-    <div class="cards-grid" id="notizie-grid">
-      <!-- Card statiche di esempio -->
-      <div class="card tilt-card evento-raduno">
-        <div class="card-icon">📋</div>
-        <h3>Raduno Stagionale</h3>
-        <p>Il prossimo raduno si terrà a Montevarchi. Presenza obbligatoria per tutti gli arbitri della sezione. Portare il tesserino.</p>
-        <div style="margin-top:16px;"><span class="badge badge-blue">Raduno</span></div>
+    <div class="cta-banner-inner">
+      <div class="cta-banner-text">
+        <h2>Diventa Arbitro</h2>
+        <p>Fischia con noi il calcio di inizio...<br>Diventa arbitro di calcio!</p>
       </div>
-      <div class="card tilt-card evento-corso">
-        <div class="card-icon">📚</div>
-        <h3>Corso Aggiornamento</h3>
-        <p>Corso di aggiornamento sul Regolamento del Gioco. Relatore: Designatore Regionale. Obbligatorio per la designazione.</p>
-        <div style="margin-top:16px;"><span class="badge badge-orange">Corso</span></div>
+      <div class="cta-banner-actions">
+        <a href="mailto:aiavaldarno@gmail.com?subject=Voglio%20diventare%20arbitro" class="btn btn-white">Diventa Arbitro</a>
+        <a href="calendario.html" class="btn btn-outline-white">Calendario eventi e RTO →</a>
       </div>
-      <div class="card tilt-card evento-rto">
-        <div class="card-icon">🏃</div>
-        <h3>RTO — Test Atletici</h3>
-        <p>Riunione Tecnica Organizzativa con test atletici stagionali. Prepararsi con abbigliamento sportivo idoneo.</p>
-        <div style="margin-top:16px;"><span class="badge badge-green">RTO</span></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a href="calendario.html" class="btn btn-secondary">Vedi tutti gli eventi →</a>
     </div>
   </div>
 </section>
 
-<!-- ============ INFO SECTION ============ -->
+<!-- ============ ULTIME NOTIZIE (Instagram) ============ -->
+<section class="section notizie-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Ultime <span style="color:var(--oro)">Notizie</span></h2>
+      <p>Le ultime news dalla nostra sezione</p>
+      <div class="line"></div>
+    </div>
+
+    <div class="insta-grid">
+
+      <!-- Card 1 — aggiorna href con link al post Instagram reale -->
+      <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" class="insta-card">
+        <div class="insta-img" style="background: linear-gradient(135deg, #0d2d60, #1a52a4);">
+          <!-- Sostituire con: style="background-image: url(images/post1.jpg); background-size:cover;" -->
+          <div class="insta-img-placeholder">
+            📸
+            <span>Instagram</span>
+          </div>
+          <div class="insta-hover-overlay">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </div>
+        <div class="insta-caption">
+          <div class="insta-meta">
+            <span class="insta-icon">📸</span>
+            <span class="insta-date">28 Feb 2026</span>
+          </div>
+          <p>Raduno stagionale: ottima risposta dei nostri arbitri. Pronti per la seconda parte di stagione!</p>
+          <span class="insta-link-text">Vedi su Instagram ↗</span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" class="insta-card">
+        <div class="insta-img" style="background: linear-gradient(135deg, #163d80, #1a52a4);">
+          <div class="insta-img-placeholder">
+            🏆
+            <span>Instagram</span>
+          </div>
+          <div class="insta-hover-overlay">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </div>
+        <div class="insta-caption">
+          <div class="insta-meta">
+            <span class="insta-icon">📸</span>
+            <span class="insta-date">15 Feb 2026</span>
+          </div>
+          <p>Corso di aggiornamento sul Regolamento del Gioco. Presenti tutti i nostri arbitri della sezione.</p>
+          <span class="insta-link-text">Vedi su Instagram ↗</span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" class="insta-card">
+        <div class="insta-img" style="background: linear-gradient(135deg, #1a3a6e, #2060c8);">
+          <div class="insta-img-placeholder">
+            ⚽
+            <span>Instagram</span>
+          </div>
+          <div class="insta-hover-overlay">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </div>
+        <div class="insta-caption">
+          <div class="insta-meta">
+            <span class="insta-icon">📸</span>
+            <span class="insta-date">2 Feb 2026</span>
+          </div>
+          <p>RTO stagionale completato con successo. I test atletici confermano la grande preparazione dei nostri arbitri.</p>
+          <span class="insta-link-text">Vedi su Instagram ↗</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center; margin-top:36px;">
+      <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" class="btn btn-secondary">
+        Segui su Instagram ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFO STATS ============ -->
 <section class="section info-section">
   <div class="container">
     <div class="info-grid">
@@ -148,17 +217,17 @@
       <div class="line"></div>
     </div>
     <div class="cards-grid">
-      <div class="card tilt-card">
+      <div class="card">
         <div class="card-icon">🎓</div>
         <h3>Formazione Continua</h3>
         <p>Corsi, aggiornamenti e sessioni tecniche per crescere come direttore di gara ad ogni livello.</p>
       </div>
-      <div class="card tilt-card">
+      <div class="card">
         <div class="card-icon">👥</div>
         <h3>Comunità</h3>
         <p>Entra a far parte di una grande famiglia. Oltre 36.000 arbitri in tutta Italia, uniti dalla passione per il calcio.</p>
       </div>
-      <div class="card tilt-card">
+      <div class="card">
         <div class="card-icon">⚖️</div>
         <h3>Fair Play</h3>
         <p>Sii il custode delle regole del gioco. Un ruolo fondamentale per il corretto svolgimento di ogni partita.</p>
@@ -172,9 +241,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="navbar-brand" style="position:static;">
-          <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:52px;width:auto;">
-        </div>
+        <img src="images/logo-aia.svg" alt="AIA Sezione Valdarno" style="height:56px;width:auto;">
         <p>Sezione Valdarno dell'Associazione Italiana Arbitri.<br>
           Affiliata alla Federazione Italiana Giuoco Calcio (FIGC).</p>
       </div>
@@ -198,6 +265,10 @@
             <span class="icon">📞</span>
             <span>393 972 3207</span>
           </div>
+          <div class="footer-contact-item">
+            <span class="icon">📷</span>
+            <a href="https://www.instagram.com/aia_valdarno/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);">@aia_valdarno</a>
+          </div>
         </div>
       </div>
     </div>
@@ -210,17 +281,53 @@
 
 <!-- ============ SCRIPTS ============ -->
 
-<!-- Service Worker Registration -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(err => {
-        console.warn('SW registration failed:', err);
-      });
+      navigator.serviceWorker.register('sw.js').catch(() => {});
     });
   }
 </script>
 
+<!-- Carousel -->
+<script>
+(function () {
+  const track  = document.getElementById('carousel-track');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dots   = document.querySelectorAll('.carousel-dot');
+  const total  = slides.length;
+  let current  = 0;
+  let timer;
+
+  function goTo(n) {
+    current = (n + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startTimer() { timer = setInterval(next, 5000); }
+  function resetTimer() { clearInterval(timer); startTimer(); }
+
+  document.getElementById('carousel-next').addEventListener('click', () => { next(); resetTimer(); });
+  document.getElementById('carousel-prev').addEventListener('click', () => { prev(); resetTimer(); });
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetTimer(); });
+  });
+
+  // Swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); resetTimer(); }
+  });
+
+  startTimer();
+})();
+</script>
 
 <!-- Auth navbar init -->
 <script type="module">
